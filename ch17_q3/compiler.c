@@ -1522,4 +1522,14 @@ void markCompilerRoots() {
     compiler = compiler->enclosing;
   }
 }
+
+static void ternary(bool canAssign) {
+
+  expression();
+
+  consume(TOKEN_COLON, "Expect ':' after middle operand of ternary operator.");
+
+  parsePrecedence(PREC_TERNARY);
+
+}
 //< Garbage Collection mark-compiler-roots
